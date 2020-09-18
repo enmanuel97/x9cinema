@@ -6,27 +6,44 @@
     </ion-title>
 
     <ion-buttons slot="end">
-      <ion-button>
+      <ion-button (click)="showSearchBar != showSearchBar">
         <ion-icon slot="icon-only" name="search-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
 
     <ion-buttons slot="end">
       <ion-button>
-        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+        <ion-icon slot="icon-only" name="options-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
 
   </ion-toolbar>
 
-  <ion-searchbar placeholder="Buscar album" animated inputmode="text" mode="ios" [debounce]="250" (ionChange)="onSearchChange($event)"></ion-searchbar>
+  <ion-searchbar *ngIf="showSearchBar == false" placeholder="Buscar album" animated inputmode="text" mode="ios" [debounce]="250" (ionChange)="onSearchChange($event)"></ion-searchbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-segment (ionChange)="segmentChanged($event)" scrollable value="friends">
+    <ion-segment-button value="friends">
+      <ion-label>Friends</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="enemies">
+      <ion-label>Enemies</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="allies">
+      <ion-label>allies</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="asdasd">
+      <ion-label>asdasd</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="asdasd3asd">
+      <ion-label>asdasdwerewr</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="asderwerwer3asd">
+      <ion-label>asdaswqeqwed</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="asdaasdsd22sd">
+      <ion-label>aszczxcdasd</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 </ion-content>
