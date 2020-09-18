@@ -1,0 +1,7 @@
+{
+  "name": "x9cinema",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
