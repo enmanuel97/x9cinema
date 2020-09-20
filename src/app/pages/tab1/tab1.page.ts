@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {MovieService} from '../../services/movie.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,11 +8,30 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  public showSearchBar: boolean = false;
+  public showIonSearchBar: boolean = false;
+  public genres: any[] = [];
 
-  constructor() {}
+  slideOpts = {
+    slidesPerView: 1.5,
+    freeMode: true,
+    spaceBetween: 15
+  };
+
+  constructor(private movieService: MovieService) {
+    this.movieService.getGenres().subscribe((result: any) => {
+      this.genres = result.genres;
+    });
+  }
 
   onSearchChange(event) {
+
+  }
+
+  showSearchBar() {
+    this.showIonSearchBar = !this.showIonSearchBar;
+  }
+
+  segmentChanged(event) {
 
   }
 }

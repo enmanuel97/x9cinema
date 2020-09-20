@@ -249,3 +249,17 @@
   --ion-color-shade: var(--ion-color-light-shade);
   --ion-color-tint: var(--ion-color-light-tint);
 }
+
+::-webkit-scrollbar, *::-webkit-scrollbar {
+  display: none;
+  overflow: hidden;
+}
+
+ion-content {
+  overflow: hidden;
+  --overflow: hidden;
+}
+
+.scroll-content {
+  overflow: hidden;
+}

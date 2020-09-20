@@ -6,7 +6,7 @@
     </ion-title>
 
     <ion-buttons slot="end">
-      <ion-button (click)="showSearchBar != showSearchBar">
+      <ion-button (click)="showSearchBar()">
         <ion-icon slot="icon-only" name="search-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -16,34 +16,47 @@
         <ion-icon slot="icon-only" name="options-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-
   </ion-toolbar>
 
-  <ion-searchbar *ngIf="showSearchBar == false" placeholder="Buscar album" animated inputmode="text" mode="ios" [debounce]="250" (ionChange)="onSearchChange($event)"></ion-searchbar>
+  <div class="searchbar">
+    <ion-searchbar class="animate__animated animate__fadeInDown animate__faster" *ngIf="showIonSearchBar" placeholder="Buscar album" animated inputmode="text" mode="ios" [debounce]="250" (ionChange)="onSearchChange($event)"></ion-searchbar>
+  </div>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-segment (ionChange)="segmentChanged($event)" scrollable value="friends">
-    <ion-segment-button value="friends">
-      <ion-label>Friends</ion-label>
+  <ion-segment (ionChange)="segmentChanged($event)" scrollable value="todos">
+    <ion-segment-button value="todos">
+      <ion-label>Todos</ion-label>
     </ion-segment-button>
-    <ion-segment-button value="enemies">
-      <ion-label>Enemies</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="allies">
-      <ion-label>allies</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="asdasd">
-      <ion-label>asdasd</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="asdasd3asd">
-      <ion-label>asdasdwerewr</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="asderwerwer3asd">
-      <ion-label>asdaswqeqwed</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="asdaasdsd22sd">
-      <ion-label>aszczxcdasd</ion-label>
+    <ion-segment-button *ngFor="let genre of genres" [value]="genre.id">
+      <ion-label>{{genre.name}}</ion-label>
     </ion-segment-button>
   </ion-segment>
+
+  <div class="movies-section">
+    <h3>Peliculas</h3>
+    <ion-slides pager="false" [options]="slideOpts">
+      <ion-slide *ngFor="let item of [1,2,3,4,5]">
+        <ion-card [ngStyle]="{'background-size': 'cover', 'background-image': 'url(https://www.cinemascomics.com/wp-content/uploads/2020/07/snake-metal-gear-solid-960x720.jpg)'}">
+          <ion-card-content class="ion-text-left">
+            <h3 class="ion-text-uppercase">Driver</h3>
+            <h5>Ryan Gosling</h5>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="9">
+                  <star-rating [value]="9/2" totalstars="5" checkedcolor="white" uncheckedcolor="transparent" size="22px" readonly="false"></star-rating>
+                </ion-col>
+                <ion-col size="3">
+                  <button ion-button icon-only clear>
+                    <ion-icon name="add"></ion-icon>
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+
+    </ion-slides>
+  </div>
 </ion-content>
