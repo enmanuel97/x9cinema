@@ -31,12 +31,14 @@
 }
 
 ion-content {
-  overflow: hidden;
-  --overflow: hidden;
+  overflow: auto;
+  --overflow: auto;
+  overflow-y: auto;
 }
 
 .scroll-content {
   overflow: hidden;
+  padding-bottom: 5rem;
 }
 
 .segment-button-checked {
@@ -91,4 +93,7 @@ ion-card-content h5 {
 }
 ion-grid, ion-col {
   padding: 0px !important;
+}
+.no-ripple {
+  --ripple-color: transparent;
 }

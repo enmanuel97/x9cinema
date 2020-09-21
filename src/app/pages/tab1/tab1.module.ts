@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
-import {RatingModule} from 'ng-starrating';
+import {ComponentsModule} from '../../components/components.module';
 
 
 @NgModule({
@@ -14,7 +14,7 @@ import {RatingModule} from 'ng-starrating';
         CommonModule,
         FormsModule,
         Tab1PageRoutingModule,
-        RatingModule
+        ComponentsModule
     ],
   declarations: [Tab1Page]
 })

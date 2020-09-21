@@ -229,6 +229,10 @@
 
     --ion-card-background: #1e1e1e;
   }
+
+  ion-toolbar {
+    --background:#121212 !important;
+  }
 }
 
 @media (prefers-color-scheme: light) {
