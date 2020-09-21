@@ -62,12 +62,7 @@ ion-tab-bar {
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
 }
-body, ion-content, ion-header {
-  --ion-background-color:#f5f5f5;
-}
-.searchbar, ion-searchbar {
-  background:#f5f5f5 !important;
-}
+
 ion-card {
   margin: 0px;
   width: 100%;
@@ -93,4 +88,7 @@ ion-card-content h3 {
 ion-card-content h5 {
   color: white !important;
   font-size: 15px !important;
+}
+ion-grid, ion-col {
+  padding: 0px !important;
 }
