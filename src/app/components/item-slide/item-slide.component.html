@@ -9,15 +9,15 @@
   </ion-row>
 </ion-grid>
 <ion-slides pager="false" [options]="slideOpts">
-  <ion-slide *ngFor="let item of [1,2,3,4,5]">
-    <ion-card [ngStyle]="{'background-size': 'cover', 'background-image': 'url(https://www.cinemascomics.com/wp-content/uploads/2020/07/snake-metal-gear-solid-960x720.jpg)'}">
+  <ion-slide *ngFor="let item of items">
+    <ion-card [ngStyle]="{'background-size': 'cover', 'background-image': 'url(https://image.tmdb.org/t/p/w500'+item.poster_path+')'}" (click)="onItemClick(item)">
       <ion-card-content class="ion-text-left">
-        <h3 class="ion-text-uppercase">Driver</h3>
+        <h3 class="ion-text-uppercase">{{item.original_title}}</h3>
         <h5>Ryan Gosling</h5>
         <ion-grid>
           <ion-row>
             <ion-col size="9">
-              <star-rating [value]="9/2" totalstars="5" checkedcolor="white" uncheckedcolor="transparent" size="22px" readonly="false"></star-rating>
+              <star-rating [value]="item.vote_average/2" totalstars="5" checkedcolor="white" uncheckedcolor="transparent" size="22px" readonly="false"></star-rating>
             </ion-col>
             <ion-col size="3">
               <ion-button class="no-ripple" (click)="onClick()" fill="clear">

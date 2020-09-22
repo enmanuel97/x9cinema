@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ItemSlideComponent implements OnInit {
 
   @Input() title: string;
+  @Input() items: any[];
 
   public slideOpts = {
     slidesPerView: 1.5,
@@ -19,4 +20,7 @@ export class ItemSlideComponent implements OnInit {
 
   ngOnInit() {}
 
+  onItemClick(item) {
+    console.log(item);
+  }
 }
