@@ -47,6 +47,12 @@ export class MovieService {
     }));
   }
 
+  getPeliculaDetalle(id: string) {
+    return this.http.get<MovieResponse>(`${this.baseUrl}/movie/${id}`, {
+      params: this.params
+    }).pipe(catchError(err => of(null)));
+  }
+
   resetPage() {
     this.page = 1;
   }
@@ -73,12 +79,6 @@ export class MovieService {
   buscarPelicula(texto: string): Observable<Movie[]> {
     const params = {...this.params, page: '1', query: texto};
     return this.http.get<CarteleraResponse>(`${this.baseUrl}/search/movie`, {params}).pipe(map(resp => resp.results));
-  }
-
-  getPeliculaDetalle(id: string) {
-    return this.http.get<MovieResponse>(`${this.baseUrl}/movie/${id}`, {
-      params: this.params
-    }).pipe(catchError(err => of(null)));
   }
 
   getCast(id: string): Observable<Cast[]> {

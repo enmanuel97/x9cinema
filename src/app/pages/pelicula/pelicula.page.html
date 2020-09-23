@@ -1,0 +1,30 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="movieDetail" slot="end">{{movieDetail.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="movieDetail" scroll="true" class="ion-padding">
+  <ion-card [ngStyle]="{'background-size': 'cover', 'height': '100%', 'background-image': 'url(https://image.tmdb.org/t/p/w500'+movieDetail.poster_path+')'}">
+    <ion-card-content class="ion-text-left">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="9">
+            <star-rating [value]="movieDetail.vote_average/2" totalstars="5" checkedcolor="white" uncheckedcolor="transparent" size="22px" readonly="false"></star-rating>
+          </ion-col>
+          <ion-col size="3" class="ion-text-right">
+            <ion-button class="no-ripple" (click)="onClick()" fill="clear">
+              <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <h3>Sinopsis</h3>
+  <p>{{movieDetail.overview}}</p>
+  <h3>Cast</h3>
+</ion-content>

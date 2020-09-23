@@ -19,8 +19,4 @@ export class ItemSlideComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {}
-
-  onItemClick(item) {
-    console.log(item);
-  }
 }
