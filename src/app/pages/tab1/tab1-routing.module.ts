@@ -8,8 +8,8 @@ const routes: Routes = [
     component: Tab1Page,
   },
   {
-    path: 'pelicula/:movieId',
-    loadChildren: () => import('../pelicula/pelicula.module').then( m => m.PeliculaPageModule)
+    path: 'movie/:movieId',
+    loadChildren: () => import('../movie/movie.module').then( m => m.MoviePageModule)
   }
 ];
 

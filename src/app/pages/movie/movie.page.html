@@ -16,7 +16,7 @@
             <star-rating [value]="movieDetail.vote_average/2" totalstars="5" checkedcolor="white" uncheckedcolor="transparent" size="22px" readonly="false"></star-rating>
           </ion-col>
           <ion-col size="3" class="ion-text-right">
-            <ion-button class="no-ripple" (click)="onClick()" fill="clear">
+            <ion-button class="no-ripple ion-no-padding" (click)="onClick()" fill="clear">
               <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
             </ion-button>
           </ion-col>
@@ -27,4 +27,5 @@
   <h3>Sinopsis</h3>
   <p>{{movieDetail.overview}}</p>
   <h3>Cast</h3>
+  <app-cast-slide [movieCast]="movieCast"></app-cast-slide>
 </ion-content>

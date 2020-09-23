@@ -10,7 +10,7 @@
 </ion-grid>
 <ion-slides pager="false" [options]="slideOpts">
   <ion-slide *ngFor="let item of items">
-    <ion-card [routerLink]="['pelicula', item.id]" [ngStyle]="{'background-size': 'cover', 'background-image': 'url(https://image.tmdb.org/t/p/w500'+item.poster_path+')'}">
+    <ion-card [routerLink]="[type, item.id]" [ngStyle]="{'background-size': 'cover', 'background-image': 'url(https://image.tmdb.org/t/p/w500'+item.poster_path+')'}">
       <ion-card-content class="ion-text-left">
         <h3 class="ion-text-uppercase">{{item.original_title}}</h3>
         <h5>Ryan Gosling</h5>

@@ -4,19 +4,22 @@ import {ItemSlideComponent} from './item-slide/item-slide.component';
 import {IonicModule} from '@ionic/angular';
 import {RatingModule} from 'ng-starrating';
 import {RouterModule} from '@angular/router';
+import {CastSlideComponent} from './cast-slide/cast-slide.component';
+import {PipesModule} from '../pipes/pipes.module';
 
 
 
 @NgModule({
-  declarations: [ItemSlideComponent],
+  declarations: [ItemSlideComponent, CastSlideComponent],
     imports: [
         CommonModule,
         IonicModule,
         RatingModule,
-        RouterModule
+        RouterModule,
+        PipesModule
     ],
   exports: [
-      ItemSlideComponent
+      ItemSlideComponent, CastSlideComponent
   ]
 })
 export class ComponentsModule { }

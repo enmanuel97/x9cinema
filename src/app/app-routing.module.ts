@@ -7,8 +7,8 @@ const routes: Routes = [
     loadChildren: () => import('./main/main.module').then(m => m.MainPageModule)
   },
   {
-    path: 'pelicula',
-    loadChildren: () => import('./pages/pelicula/pelicula.module').then( m => m.PeliculaPageModule)
+    path: 'movie',
+    loadChildren: () => import('./pages/movie/movie.module').then( m => m.MoviePageModule)
   }
 ];
 @NgModule({

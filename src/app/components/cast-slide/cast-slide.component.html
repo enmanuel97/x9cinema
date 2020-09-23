@@ -1,0 +1,5 @@
+<ion-slides pager="false" [options]="slideOpts">
+  <ion-slide *ngFor="let cast of movieCast">
+    <img [src]="cast.profile_path | poster" alt="">
+  </ion-slide>
+</ion-slides>

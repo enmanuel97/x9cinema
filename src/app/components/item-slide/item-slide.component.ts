@@ -9,6 +9,7 @@ export class ItemSlideComponent implements OnInit {
 
   @Input() title: string;
   @Input() items: any[];
+  @Input() type: string;
 
   public slideOpts = {
     slidesPerView: 1.5,
