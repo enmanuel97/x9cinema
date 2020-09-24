@@ -6,7 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-
+  public showIonSearchBar: boolean = false;
   constructor() {}
 
+  onSearchChange(event) {
+
+  }
+
+  showSearchBar() {
+    this.showIonSearchBar = !this.showIonSearchBar;
+  }
 }

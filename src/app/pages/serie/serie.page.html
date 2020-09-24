@@ -3,17 +3,17 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title *ngIf="movieDetail" slot="end">{{movieDetail.title}}</ion-title>
+    <ion-title *ngIf="serieDetail" slot="end">{{serieDetail.original_name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" *ngIf="movieDetail" scroll="true" class="ion-padding">
-  <ion-card [ngStyle]="{'background-size': 'cover', 'height': '100%', 'background-image': 'url(https://image.tmdb.org/t/p/w500'+movieDetail.poster_path+')'}">
+<ion-content [fullscreen]="true" *ngIf="serieDetail" scroll="true" class="ion-padding">
+  <ion-card [ngStyle]="{'background-size': 'cover', 'height': '100%', 'background-image': 'url(https://image.tmdb.org/t/p/w500'+serieDetail.poster_path+')'}">
     <ion-card-content class="ion-text-left">
       <ion-grid>
         <ion-row>
           <ion-col size="9">
-            <star-rating [value]="movieDetail.vote_average/2" totalstars="5" checkedcolor="white" uncheckedcolor="transparent" size="22px" readonly="false"></star-rating>
+            <star-rating [value]="serieDetail.vote_average/2" totalstars="5" checkedcolor="white" uncheckedcolor="transparent" size="22px" readonly="false"></star-rating>
           </ion-col>
           <ion-col size="3" class="ion-text-right">
             <ion-button class="no-ripple ion-no-padding" (click)="onClick()" fill="clear">
@@ -26,10 +26,10 @@
   </ion-card>
   <div class="synopsis-section">
     <h3>Sinopsis</h3>
-    <p>{{movieDetail.overview}}</p>
+    <p>{{serieDetail.overview}}</p>
   </div>
   <div class="cast-section ion-padding-top">
     <h3>Cast</h3>
-    <app-cast-slide [movieCast]="movieCast"></app-cast-slide>
+    <app-cast-slide [movieCast]="serieCast"></app-cast-slide>
   </div>
 </ion-content>

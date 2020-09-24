@@ -31,30 +31,31 @@ export class MovieService {
     });
   }
 
-  getPopularMovies() {
-    return this.http.get<any>(`${this.baseUrl}/movie/popular`, {
-      params: this.params
-    }).pipe(map(data => {
-      return data.results;
-    }), take(10));
-  }
+  getPopular(type:string = 'movie', genre: number = 0) {
+    let params = {
+      api_key: '62ab7dd117eff48e4d7f299e11a137d7',
+      language: 'es-ES',
+      sort_by: 'popularity.desc',
+      page: this.page.toString(),
+    };
 
-  getPopularSeries() {
-    return this.http.get<any>(`${this.baseUrl}/tv/popular`, {
-      params: this.params
-    }).pipe(map(data => {
+    if(genre !== 0) {
+      params['with_genres'] = genre;
+    }
+
+    return this.http.get<any>(`${this.baseUrl}/discover/${type}`, {params}).pipe(map(data => {
       return data.results;
     }));
   }
-
-  getMovieDetail(id: string) {
-    return this.http.get<MovieResponse>(`${this.baseUrl}/movie/${id}`, {
+  
+  getDetail(id: string, type = 'movie') {
+    return this.http.get<MovieResponse>(`${this.baseUrl}/${type}/${id}`, {
       params: this.params
     }).pipe(catchError(err => of(null)));
   }
 
-  getMovieCast(id: string): Observable<Cast[]> {
-    return this.http.get<CreditResponse>(`${this.baseUrl}/movie/${id}/credits`, {
+  getCast(id: string, type = 'movie'): Observable<Cast[]> {
+    return this.http.get<CreditResponse>(`${this.baseUrl}/${type}/${id}/credits`, {
       params: this.params
     }).pipe(
         map(resp => resp.cast),
@@ -62,9 +63,9 @@ export class MovieService {
     );
   }
 
-  resetPage() {
-    this.page = 1;
-  }
+  // resetPage() {
+  //   this.page = 1;
+  // }
 
   // getCartelera(): Observable<Movie[]> {
   //
@@ -85,8 +86,8 @@ export class MovieService {
   //       }));
   // }
 
-  buscarPelicula(texto: string): Observable<Movie[]> {
-    const params = {...this.params, page: '1', query: texto};
-    return this.http.get<CarteleraResponse>(`${this.baseUrl}/search/movie`, {params}).pipe(map(resp => resp.results));
-  }
+  // buscarPelicula(texto: string): Observable<Movie[]> {
+  //   const params = {...this.params, page: '1', query: texto};
+  //   return this.http.get<CarteleraResponse>(`${this.baseUrl}/search/movie`, {params}).pipe(map(resp => resp.results));
+  // }
 }

@@ -21,28 +21,30 @@ export class Tab1Page {
   };
 
   constructor(private movieService: MovieService) {
-    combineLatest([
-      this.movieService.getGenres(),
-      this.movieService.getPopularMovies(),
-      this.movieService.getPopularSeries(),
-    ]).subscribe(([genres, movies, series]) => {
-      this.genres = genres.genres;
-      this.movies = movies;
-      this.series = series;
-      console.log(movies);
-      console.log(series);
-    });
-  }
-
-  onSearchChange(event) {
-
+    this.loadData();
   }
 
   showSearchBar() {
     this.showIonSearchBar = !this.showIonSearchBar;
   }
 
-  segmentChanged(event) {
+  onSearchChange(event) {
 
+  }
+
+  segmentChanged(event) {
+    this.loadData(event.detail.value);
+  }
+
+  private loadData(genre = 0) {
+    combineLatest([
+      this.movieService.getGenres(),
+      this.movieService.getPopular('movie', Number(genre)),
+      this.movieService.getPopular('tv', Number(genre)),
+    ]).subscribe(([genres, movies, series]) => {
+      this.genres = genres.genres;
+      this.movies = movies;
+      this.series = series;
+    });
   }
 }

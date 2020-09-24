@@ -15,10 +15,10 @@ export class MoviePage implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private movieService: MovieService) {
     this.activatedRoute.params.subscribe(params => {
       combineLatest([
-        this.movieService.getMovieDetail(params.movieId),
-        this.movieService.getMovieCast(params.movieId)
-      ]).subscribe(([movies, cast]) => {
-        this.movieDetail = movies;
+        this.movieService.getDetail(params.movieId, 'movie'),
+        this.movieService.getCast(params.movieId, 'movie')
+      ]).subscribe(([movie, cast]) => {
+        this.movieDetail = movie;
         this.movieCast = cast.filter(actor => actor.profile_path != null);
       });
     });

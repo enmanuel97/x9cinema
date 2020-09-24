@@ -9,7 +9,7 @@ export class CastSlideComponent implements OnInit {
 
   @Input() movieCast: any[] = [];
   public slideOpts = {
-    slidesPerView: 3.5,
+    slidesPerView: 3,
     freeMode: true,
     spaceBetween: 15
   };

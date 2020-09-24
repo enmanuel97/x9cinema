@@ -12,12 +12,6 @@
       </ion-button>
     </ion-buttons>
 
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon slot="icon-only" name="options-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-
   </ion-toolbar>
 
   <div class="searchbar">
@@ -28,9 +22,9 @@
 
 <ion-content [fullscreen]="true" scroll="true" class="ion-padding">
 
-  <ion-segment (ionChange)="segmentChanged($event)" scrollable value="todos">
+  <ion-segment (ionChange)="segmentChanged($event)" scrollable value="0">
 
-    <ion-segment-button value="todos">
+    <ion-segment-button value="0">
       <ion-label>Todos</ion-label>
     </ion-segment-button>
 
@@ -44,7 +38,7 @@
     <app-item-slide [items]="movies" title="Películas" type="movie"></app-item-slide>
   </div>
 
-  <div class="series-section">
+  <div class="series-section ion-padding-top">
     <app-item-slide [items]="series" title="Series" type="serie"></app-item-slide>
   </div>
 

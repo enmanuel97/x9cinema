@@ -6,10 +6,6 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./main/main.module').then(m => m.MainPageModule)
   },
-  {
-    path: 'movie',
-    loadChildren: () => import('./pages/movie/movie.module').then( m => m.MoviePageModule)
-  }
 ];
 @NgModule({
   imports: [
