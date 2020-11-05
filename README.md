@@ -7,7 +7,7 @@
 
 ## Developed Using:
 <p align="left">
-    <a href="https://ionicframework.com/">Ionic Framework V5</a>
+    <a href="https://ionicframework.com/">Ionic Framework V5</a> and <a href="https://www.themoviedb.org/documentation/api">The MovieDB API</a> to load the movies and series data.
 </p>
 
 ## Screenshots
