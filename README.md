@@ -11,7 +11,7 @@
 </p>
 
 ## Screenshots
-![ionic-pokedex](https://user-images.githubusercontent.com/31030616/88213261-85676680-cc69-11ea-94df-8d715d24372f.png)
+![movie-app](https://user-images.githubusercontent.com/22060566/98245565-7d48e380-1f47-11eb-893f-9f625bcae54f.jpg)
 
 ## Prerequisite:
 1. Node.js to be installed.
